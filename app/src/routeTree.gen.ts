@@ -9,106 +9,52 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ShopRouteImport } from './routes/shop'
-import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
-import { Route as ResetPasswordRouteImport } from './routes/reset-password'
-import { Route as RegisterRouteImport } from './routes/register'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as ForgotUsernameRouteImport } from './routes/forgot-username'
-import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
-import { Route as FaqsRouteImport } from './routes/faqs'
-import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as BrokersRouteImport } from './routes/brokers'
-import { Route as ApiDocsRouteImport } from './routes/api-docs'
-import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as HelpIndexRouteImport } from './routes/help.index'
-import { Route as PlansPlanIdRouteImport } from './routes/plans.$planId'
-import { Route as HelpSlugRouteImport } from './routes/help.$slug'
-import { Route as EnrollmentsEnrollmentIdRouteImport } from './routes/enrollments.$enrollmentId'
-import { Route as EnrollPlanIdRouteImport } from './routes/enroll.$planId'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as ApiDocsRouteImport } from './routes/api-docs'
+import { Route as AutoflowDiscrepancyLogRouteImport } from './routes/autoflow-discrepancy-log'
+import { Route as BrokersRouteImport } from './routes/brokers'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as FaqsRouteImport } from './routes/faqs'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as ForgotUsernameRouteImport } from './routes/forgot-username'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ApiFaqsRouteImport } from './routes/api/faqs'
-import { Route as ApiProfileIndexRouteImport } from './routes/api/profile/index'
-import { Route as ApiPlansIndexRouteImport } from './routes/api/plans/index'
-import { Route as ApiEnrollmentsIndexRouteImport } from './routes/api/enrollments/index'
-import { Route as ApiBrokersIndexRouteImport } from './routes/api/brokers/index'
-import { Route as ApiProfilePreferencesRouteImport } from './routes/api/profile/preferences'
-import { Route as ApiProfilePhoneRouteImport } from './routes/api/profile/phone'
-import { Route as ApiProfileAddressRouteImport } from './routes/api/profile/address'
-import { Route as ApiPlansPlanIdRouteImport } from './routes/api/plans/$planId'
-import { Route as ApiEnrollmentsEnrollmentIdRouteImport } from './routes/api/enrollments/$enrollmentId'
-import { Route as ApiAuthResetPasswordRouteImport } from './routes/api/auth/reset-password'
-import { Route as ApiAuthRegisterRouteImport } from './routes/api/auth/register'
-import { Route as ApiAuthMeRouteImport } from './routes/api/auth/me'
-import { Route as ApiAuthLogoutRouteImport } from './routes/api/auth/logout'
-import { Route as ApiAuthLoginRouteImport } from './routes/api/auth/login'
-import { Route as ApiAuthForgotUsernameRouteImport } from './routes/api/auth/forgot-username'
+import { Route as EnrollPlanIdRouteImport } from './routes/enroll.$planId'
+import { Route as EnrollmentsEnrollmentIdRouteImport } from './routes/enrollments.$enrollmentId'
+import { Route as HelpIndexRouteImport } from './routes/help.index'
+import { Route as HelpSlugRouteImport } from './routes/help.$slug'
+import { Route as PlansPlanIdRouteImport } from './routes/plans.$planId'
 import { Route as ApiAuthForgotPasswordRouteImport } from './routes/api/auth/forgot-password'
+import { Route as ApiAuthForgotUsernameRouteImport } from './routes/api/auth/forgot-username'
+import { Route as ApiAuthLoginRouteImport } from './routes/api/auth/login'
+import { Route as ApiAuthLogoutRouteImport } from './routes/api/auth/logout'
+import { Route as ApiAuthMeRouteImport } from './routes/api/auth/me'
+import { Route as ApiAuthRegisterRouteImport } from './routes/api/auth/register'
+import { Route as ApiAuthResetPasswordRouteImport } from './routes/api/auth/reset-password'
+import { Route as ApiBrokersIndexRouteImport } from './routes/api/brokers/index'
+import { Route as ApiEnrollmentsIndexRouteImport } from './routes/api/enrollments/index'
+import { Route as ApiEnrollmentsEnrollmentIdRouteImport } from './routes/api/enrollments/$enrollmentId'
+import { Route as ApiPlansIndexRouteImport } from './routes/api/plans/index'
+import { Route as ApiPlansPlanIdRouteImport } from './routes/api/plans/$planId'
+import { Route as ApiProfileIndexRouteImport } from './routes/api/profile/index'
+import { Route as ApiProfileAddressRouteImport } from './routes/api/profile/address'
+import { Route as ApiProfilePhoneRouteImport } from './routes/api/profile/phone'
+import { Route as ApiProfilePreferencesRouteImport } from './routes/api/profile/preferences'
+import { Route as ApiEnrollmentsEnrollmentIdCancelRouteImport } from './routes/api/enrollments/$enrollmentId.cancel'
+import { Route as ApiEnrollmentsEnrollmentIdPayRouteImport } from './routes/api/enrollments/$enrollmentId.pay'
+import { Route as ApiEnrollmentsEnrollmentIdReinstateRouteImport } from './routes/api/enrollments/$enrollmentId.reinstate'
 import { Route as ApiHelpArticlesIndexRouteImport } from './routes/api/help/articles/index'
 import { Route as ApiHelpArticlesSlugRouteImport } from './routes/api/help/articles/$slug'
-import { Route as ApiEnrollmentsEnrollmentIdReinstateRouteImport } from './routes/api/enrollments/$enrollmentId.reinstate'
-import { Route as ApiEnrollmentsEnrollmentIdPayRouteImport } from './routes/api/enrollments/$enrollmentId.pay'
-import { Route as ApiEnrollmentsEnrollmentIdCancelRouteImport } from './routes/api/enrollments/$enrollmentId.cancel'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ShopRoute = ShopRouteImport.update({
-  id: '/shop',
-  path: '/shop',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
-  id: '/robots.txt',
-  path: '/robots.txt',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResetPasswordRoute = ResetPasswordRouteImport.update({
-  id: '/reset-password',
-  path: '/reset-password',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RegisterRoute = RegisterRouteImport.update({
-  id: '/register',
-  path: '/register',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ForgotUsernameRoute = ForgotUsernameRouteImport.update({
-  id: '/forgot-username',
-  path: '/forgot-username',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
-  id: '/forgot-password',
-  path: '/forgot-password',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqsRoute = FaqsRouteImport.update({
-  id: '/faqs',
-  path: '/faqs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BrokersRoute = BrokersRouteImport.update({
-  id: '/brokers',
-  path: '/brokers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiDocsRoute = ApiDocsRouteImport.update({
-  id: '/api-docs',
-  path: '/api-docs',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccountRoute = AccountRouteImport.update({
@@ -116,34 +62,69 @@ const AccountRoute = AccountRouteImport.update({
   path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ApiDocsRoute = ApiDocsRouteImport.update({
+  id: '/api-docs',
+  path: '/api-docs',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HelpIndexRoute = HelpIndexRouteImport.update({
-  id: '/help/',
-  path: '/help/',
+const AutoflowDiscrepancyLogRoute = AutoflowDiscrepancyLogRouteImport.update({
+  id: '/autoflow-discrepancy-log',
+  path: '/autoflow-discrepancy-log',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PlansPlanIdRoute = PlansPlanIdRouteImport.update({
-  id: '/plans/$planId',
-  path: '/plans/$planId',
+const BrokersRoute = BrokersRouteImport.update({
+  id: '/brokers',
+  path: '/brokers',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HelpSlugRoute = HelpSlugRouteImport.update({
-  id: '/help/$slug',
-  path: '/help/$slug',
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnrollmentsEnrollmentIdRoute = EnrollmentsEnrollmentIdRouteImport.update({
-  id: '/enrollments/$enrollmentId',
-  path: '/enrollments/$enrollmentId',
+const FaqsRoute = FaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnrollPlanIdRoute = EnrollPlanIdRouteImport.update({
-  id: '/enroll/$planId',
-  path: '/enroll/$planId',
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotUsernameRoute = ForgotUsernameRouteImport.update({
+  id: '/forgot-username',
+  path: '/forgot-username',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiFaqsRoute = ApiFaqsRouteImport.update({
@@ -151,19 +132,64 @@ const ApiFaqsRoute = ApiFaqsRouteImport.update({
   path: '/api/faqs',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiProfileIndexRoute = ApiProfileIndexRouteImport.update({
-  id: '/api/profile/',
-  path: '/api/profile/',
+const EnrollPlanIdRoute = EnrollPlanIdRouteImport.update({
+  id: '/enroll/$planId',
+  path: '/enroll/$planId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPlansIndexRoute = ApiPlansIndexRouteImport.update({
-  id: '/api/plans/',
-  path: '/api/plans/',
+const EnrollmentsEnrollmentIdRoute = EnrollmentsEnrollmentIdRouteImport.update({
+  id: '/enrollments/$enrollmentId',
+  path: '/enrollments/$enrollmentId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiEnrollmentsIndexRoute = ApiEnrollmentsIndexRouteImport.update({
-  id: '/api/enrollments/',
-  path: '/api/enrollments/',
+const HelpIndexRoute = HelpIndexRouteImport.update({
+  id: '/help/',
+  path: '/help/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpSlugRoute = HelpSlugRouteImport.update({
+  id: '/help/$slug',
+  path: '/help/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlansPlanIdRoute = PlansPlanIdRouteImport.update({
+  id: '/plans/$planId',
+  path: '/plans/$planId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthForgotPasswordRoute = ApiAuthForgotPasswordRouteImport.update({
+  id: '/api/auth/forgot-password',
+  path: '/api/auth/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthForgotUsernameRoute = ApiAuthForgotUsernameRouteImport.update({
+  id: '/api/auth/forgot-username',
+  path: '/api/auth/forgot-username',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthLoginRoute = ApiAuthLoginRouteImport.update({
+  id: '/api/auth/login',
+  path: '/api/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthLogoutRoute = ApiAuthLogoutRouteImport.update({
+  id: '/api/auth/logout',
+  path: '/api/auth/logout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthMeRoute = ApiAuthMeRouteImport.update({
+  id: '/api/auth/me',
+  path: '/api/auth/me',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthRegisterRoute = ApiAuthRegisterRouteImport.update({
+  id: '/api/auth/register',
+  path: '/api/auth/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthResetPasswordRoute = ApiAuthResetPasswordRouteImport.update({
+  id: '/api/auth/reset-password',
+  path: '/api/auth/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiBrokersIndexRoute = ApiBrokersIndexRouteImport.update({
@@ -171,24 +197,9 @@ const ApiBrokersIndexRoute = ApiBrokersIndexRouteImport.update({
   path: '/api/brokers/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiProfilePreferencesRoute = ApiProfilePreferencesRouteImport.update({
-  id: '/api/profile/preferences',
-  path: '/api/profile/preferences',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiProfilePhoneRoute = ApiProfilePhoneRouteImport.update({
-  id: '/api/profile/phone',
-  path: '/api/profile/phone',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiProfileAddressRoute = ApiProfileAddressRouteImport.update({
-  id: '/api/profile/address',
-  path: '/api/profile/address',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPlansPlanIdRoute = ApiPlansPlanIdRouteImport.update({
-  id: '/api/plans/$planId',
-  path: '/api/plans/$planId',
+const ApiEnrollmentsIndexRoute = ApiEnrollmentsIndexRouteImport.update({
+  id: '/api/enrollments/',
+  path: '/api/enrollments/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiEnrollmentsEnrollmentIdRoute =
@@ -197,41 +208,54 @@ const ApiEnrollmentsEnrollmentIdRoute =
     path: '/api/enrollments/$enrollmentId',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ApiAuthResetPasswordRoute = ApiAuthResetPasswordRouteImport.update({
-  id: '/api/auth/reset-password',
-  path: '/api/auth/reset-password',
+const ApiPlansIndexRoute = ApiPlansIndexRouteImport.update({
+  id: '/api/plans/',
+  path: '/api/plans/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiAuthRegisterRoute = ApiAuthRegisterRouteImport.update({
-  id: '/api/auth/register',
-  path: '/api/auth/register',
+const ApiPlansPlanIdRoute = ApiPlansPlanIdRouteImport.update({
+  id: '/api/plans/$planId',
+  path: '/api/plans/$planId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiAuthMeRoute = ApiAuthMeRouteImport.update({
-  id: '/api/auth/me',
-  path: '/api/auth/me',
+const ApiProfileIndexRoute = ApiProfileIndexRouteImport.update({
+  id: '/api/profile/',
+  path: '/api/profile/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiAuthLogoutRoute = ApiAuthLogoutRouteImport.update({
-  id: '/api/auth/logout',
-  path: '/api/auth/logout',
+const ApiProfileAddressRoute = ApiProfileAddressRouteImport.update({
+  id: '/api/profile/address',
+  path: '/api/profile/address',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiAuthLoginRoute = ApiAuthLoginRouteImport.update({
-  id: '/api/auth/login',
-  path: '/api/auth/login',
+const ApiProfilePhoneRoute = ApiProfilePhoneRouteImport.update({
+  id: '/api/profile/phone',
+  path: '/api/profile/phone',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiAuthForgotUsernameRoute = ApiAuthForgotUsernameRouteImport.update({
-  id: '/api/auth/forgot-username',
-  path: '/api/auth/forgot-username',
+const ApiProfilePreferencesRoute = ApiProfilePreferencesRouteImport.update({
+  id: '/api/profile/preferences',
+  path: '/api/profile/preferences',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiAuthForgotPasswordRoute = ApiAuthForgotPasswordRouteImport.update({
-  id: '/api/auth/forgot-password',
-  path: '/api/auth/forgot-password',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const ApiEnrollmentsEnrollmentIdCancelRoute =
+  ApiEnrollmentsEnrollmentIdCancelRouteImport.update({
+    id: '/cancel',
+    path: '/cancel',
+    getParentRoute: () => ApiEnrollmentsEnrollmentIdRoute,
+  } as any)
+const ApiEnrollmentsEnrollmentIdPayRoute =
+  ApiEnrollmentsEnrollmentIdPayRouteImport.update({
+    id: '/pay',
+    path: '/pay',
+    getParentRoute: () => ApiEnrollmentsEnrollmentIdRoute,
+  } as any)
+const ApiEnrollmentsEnrollmentIdReinstateRoute =
+  ApiEnrollmentsEnrollmentIdReinstateRouteImport.update({
+    id: '/reinstate',
+    path: '/reinstate',
+    getParentRoute: () => ApiEnrollmentsEnrollmentIdRoute,
+  } as any)
 const ApiHelpArticlesIndexRoute = ApiHelpArticlesIndexRouteImport.update({
   id: '/api/help/articles/',
   path: '/api/help/articles/',
@@ -242,29 +266,12 @@ const ApiHelpArticlesSlugRoute = ApiHelpArticlesSlugRouteImport.update({
   path: '/api/help/articles/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiEnrollmentsEnrollmentIdReinstateRoute =
-  ApiEnrollmentsEnrollmentIdReinstateRouteImport.update({
-    id: '/reinstate',
-    path: '/reinstate',
-    getParentRoute: () => ApiEnrollmentsEnrollmentIdRoute,
-  } as any)
-const ApiEnrollmentsEnrollmentIdPayRoute =
-  ApiEnrollmentsEnrollmentIdPayRouteImport.update({
-    id: '/pay',
-    path: '/pay',
-    getParentRoute: () => ApiEnrollmentsEnrollmentIdRoute,
-  } as any)
-const ApiEnrollmentsEnrollmentIdCancelRoute =
-  ApiEnrollmentsEnrollmentIdCancelRouteImport.update({
-    id: '/cancel',
-    path: '/cancel',
-    getParentRoute: () => ApiEnrollmentsEnrollmentIdRoute,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/api-docs': typeof ApiDocsRoute
+  '/autoflow-discrepancy-log': typeof AutoflowDiscrepancyLogRoute
   '/brokers': typeof BrokersRoute
   '/dashboard': typeof DashboardRoute
   '/faqs': typeof FaqsRoute
@@ -308,6 +315,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/api-docs': typeof ApiDocsRoute
+  '/autoflow-discrepancy-log': typeof AutoflowDiscrepancyLogRoute
   '/brokers': typeof BrokersRoute
   '/dashboard': typeof DashboardRoute
   '/faqs': typeof FaqsRoute
@@ -352,6 +360,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/api-docs': typeof ApiDocsRoute
+  '/autoflow-discrepancy-log': typeof AutoflowDiscrepancyLogRoute
   '/brokers': typeof BrokersRoute
   '/dashboard': typeof DashboardRoute
   '/faqs': typeof FaqsRoute
@@ -397,6 +406,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/api-docs'
+    | '/autoflow-discrepancy-log'
     | '/brokers'
     | '/dashboard'
     | '/faqs'
@@ -440,6 +450,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/api-docs'
+    | '/autoflow-discrepancy-log'
     | '/brokers'
     | '/dashboard'
     | '/faqs'
@@ -483,6 +494,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/api-docs'
+    | '/autoflow-discrepancy-log'
     | '/brokers'
     | '/dashboard'
     | '/faqs'
@@ -527,6 +539,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
   ApiDocsRoute: typeof ApiDocsRoute
+  AutoflowDiscrepancyLogRoute: typeof AutoflowDiscrepancyLogRoute
   BrokersRoute: typeof BrokersRoute
   DashboardRoute: typeof DashboardRoute
   FaqsRoute: typeof FaqsRoute
@@ -566,88 +579,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/shop': {
-      id: '/shop'
-      path: '/shop'
-      fullPath: '/shop'
-      preLoaderRoute: typeof ShopRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/robots.txt': {
-      id: '/robots.txt'
-      path: '/robots.txt'
-      fullPath: '/robots.txt'
-      preLoaderRoute: typeof RobotsDottxtRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reset-password': {
-      id: '/reset-password'
-      path: '/reset-password'
-      fullPath: '/reset-password'
-      preLoaderRoute: typeof ResetPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/register': {
-      id: '/register'
-      path: '/register'
-      fullPath: '/register'
-      preLoaderRoute: typeof RegisterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/forgot-username': {
-      id: '/forgot-username'
-      path: '/forgot-username'
-      fullPath: '/forgot-username'
-      preLoaderRoute: typeof ForgotUsernameRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/forgot-password': {
-      id: '/forgot-password'
-      path: '/forgot-password'
-      fullPath: '/forgot-password'
-      preLoaderRoute: typeof ForgotPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faqs': {
-      id: '/faqs'
-      path: '/faqs'
-      fullPath: '/faqs'
-      preLoaderRoute: typeof FaqsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/brokers': {
-      id: '/brokers'
-      path: '/brokers'
-      fullPath: '/brokers'
-      preLoaderRoute: typeof BrokersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api-docs': {
-      id: '/api-docs'
-      path: '/api-docs'
-      fullPath: '/api-docs'
-      preLoaderRoute: typeof ApiDocsRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/account': {
@@ -657,46 +593,95 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/api-docs': {
+      id: '/api-docs'
+      path: '/api-docs'
+      fullPath: '/api-docs'
+      preLoaderRoute: typeof ApiDocsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/help/': {
-      id: '/help/'
-      path: '/help'
-      fullPath: '/help/'
-      preLoaderRoute: typeof HelpIndexRouteImport
+    '/autoflow-discrepancy-log': {
+      id: '/autoflow-discrepancy-log'
+      path: '/autoflow-discrepancy-log'
+      fullPath: '/autoflow-discrepancy-log'
+      preLoaderRoute: typeof AutoflowDiscrepancyLogRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/plans/$planId': {
-      id: '/plans/$planId'
-      path: '/plans/$planId'
-      fullPath: '/plans/$planId'
-      preLoaderRoute: typeof PlansPlanIdRouteImport
+    '/brokers': {
+      id: '/brokers'
+      path: '/brokers'
+      fullPath: '/brokers'
+      preLoaderRoute: typeof BrokersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/help/$slug': {
-      id: '/help/$slug'
-      path: '/help/$slug'
-      fullPath: '/help/$slug'
-      preLoaderRoute: typeof HelpSlugRouteImport
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/enrollments/$enrollmentId': {
-      id: '/enrollments/$enrollmentId'
-      path: '/enrollments/$enrollmentId'
-      fullPath: '/enrollments/$enrollmentId'
-      preLoaderRoute: typeof EnrollmentsEnrollmentIdRouteImport
+    '/faqs': {
+      id: '/faqs'
+      path: '/faqs'
+      fullPath: '/faqs'
+      preLoaderRoute: typeof FaqsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/enroll/$planId': {
-      id: '/enroll/$planId'
-      path: '/enroll/$planId'
-      fullPath: '/enroll/$planId'
-      preLoaderRoute: typeof EnrollPlanIdRouteImport
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-username': {
+      id: '/forgot-username'
+      path: '/forgot-username'
+      fullPath: '/forgot-username'
+      preLoaderRoute: typeof ForgotUsernameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/faqs': {
@@ -706,102 +691,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiFaqsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/profile/': {
-      id: '/api/profile/'
-      path: '/api/profile'
-      fullPath: '/api/profile/'
-      preLoaderRoute: typeof ApiProfileIndexRouteImport
+    '/enroll/$planId': {
+      id: '/enroll/$planId'
+      path: '/enroll/$planId'
+      fullPath: '/enroll/$planId'
+      preLoaderRoute: typeof EnrollPlanIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/plans/': {
-      id: '/api/plans/'
-      path: '/api/plans'
-      fullPath: '/api/plans/'
-      preLoaderRoute: typeof ApiPlansIndexRouteImport
+    '/enrollments/$enrollmentId': {
+      id: '/enrollments/$enrollmentId'
+      path: '/enrollments/$enrollmentId'
+      fullPath: '/enrollments/$enrollmentId'
+      preLoaderRoute: typeof EnrollmentsEnrollmentIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/enrollments/': {
-      id: '/api/enrollments/'
-      path: '/api/enrollments'
-      fullPath: '/api/enrollments/'
-      preLoaderRoute: typeof ApiEnrollmentsIndexRouteImport
+    '/help/': {
+      id: '/help/'
+      path: '/help'
+      fullPath: '/help/'
+      preLoaderRoute: typeof HelpIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/brokers/': {
-      id: '/api/brokers/'
-      path: '/api/brokers'
-      fullPath: '/api/brokers/'
-      preLoaderRoute: typeof ApiBrokersIndexRouteImport
+    '/help/$slug': {
+      id: '/help/$slug'
+      path: '/help/$slug'
+      fullPath: '/help/$slug'
+      preLoaderRoute: typeof HelpSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/profile/preferences': {
-      id: '/api/profile/preferences'
-      path: '/api/profile/preferences'
-      fullPath: '/api/profile/preferences'
-      preLoaderRoute: typeof ApiProfilePreferencesRouteImport
+    '/plans/$planId': {
+      id: '/plans/$planId'
+      path: '/plans/$planId'
+      fullPath: '/plans/$planId'
+      preLoaderRoute: typeof PlansPlanIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/profile/phone': {
-      id: '/api/profile/phone'
-      path: '/api/profile/phone'
-      fullPath: '/api/profile/phone'
-      preLoaderRoute: typeof ApiProfilePhoneRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/profile/address': {
-      id: '/api/profile/address'
-      path: '/api/profile/address'
-      fullPath: '/api/profile/address'
-      preLoaderRoute: typeof ApiProfileAddressRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/plans/$planId': {
-      id: '/api/plans/$planId'
-      path: '/api/plans/$planId'
-      fullPath: '/api/plans/$planId'
-      preLoaderRoute: typeof ApiPlansPlanIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/enrollments/$enrollmentId': {
-      id: '/api/enrollments/$enrollmentId'
-      path: '/api/enrollments/$enrollmentId'
-      fullPath: '/api/enrollments/$enrollmentId'
-      preLoaderRoute: typeof ApiEnrollmentsEnrollmentIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/auth/reset-password': {
-      id: '/api/auth/reset-password'
-      path: '/api/auth/reset-password'
-      fullPath: '/api/auth/reset-password'
-      preLoaderRoute: typeof ApiAuthResetPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/auth/register': {
-      id: '/api/auth/register'
-      path: '/api/auth/register'
-      fullPath: '/api/auth/register'
-      preLoaderRoute: typeof ApiAuthRegisterRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/auth/me': {
-      id: '/api/auth/me'
-      path: '/api/auth/me'
-      fullPath: '/api/auth/me'
-      preLoaderRoute: typeof ApiAuthMeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/auth/logout': {
-      id: '/api/auth/logout'
-      path: '/api/auth/logout'
-      fullPath: '/api/auth/logout'
-      preLoaderRoute: typeof ApiAuthLogoutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/auth/login': {
-      id: '/api/auth/login'
-      path: '/api/auth/login'
-      fullPath: '/api/auth/login'
-      preLoaderRoute: typeof ApiAuthLoginRouteImport
+    '/api/auth/forgot-password': {
+      id: '/api/auth/forgot-password'
+      path: '/api/auth/forgot-password'
+      fullPath: '/api/auth/forgot-password'
+      preLoaderRoute: typeof ApiAuthForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/auth/forgot-username': {
@@ -811,12 +740,124 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthForgotUsernameRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/auth/forgot-password': {
-      id: '/api/auth/forgot-password'
-      path: '/api/auth/forgot-password'
-      fullPath: '/api/auth/forgot-password'
-      preLoaderRoute: typeof ApiAuthForgotPasswordRouteImport
+    '/api/auth/login': {
+      id: '/api/auth/login'
+      path: '/api/auth/login'
+      fullPath: '/api/auth/login'
+      preLoaderRoute: typeof ApiAuthLoginRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/logout': {
+      id: '/api/auth/logout'
+      path: '/api/auth/logout'
+      fullPath: '/api/auth/logout'
+      preLoaderRoute: typeof ApiAuthLogoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/me': {
+      id: '/api/auth/me'
+      path: '/api/auth/me'
+      fullPath: '/api/auth/me'
+      preLoaderRoute: typeof ApiAuthMeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/register': {
+      id: '/api/auth/register'
+      path: '/api/auth/register'
+      fullPath: '/api/auth/register'
+      preLoaderRoute: typeof ApiAuthRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/reset-password': {
+      id: '/api/auth/reset-password'
+      path: '/api/auth/reset-password'
+      fullPath: '/api/auth/reset-password'
+      preLoaderRoute: typeof ApiAuthResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/brokers/': {
+      id: '/api/brokers/'
+      path: '/api/brokers'
+      fullPath: '/api/brokers/'
+      preLoaderRoute: typeof ApiBrokersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/enrollments/': {
+      id: '/api/enrollments/'
+      path: '/api/enrollments'
+      fullPath: '/api/enrollments/'
+      preLoaderRoute: typeof ApiEnrollmentsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/enrollments/$enrollmentId': {
+      id: '/api/enrollments/$enrollmentId'
+      path: '/api/enrollments/$enrollmentId'
+      fullPath: '/api/enrollments/$enrollmentId'
+      preLoaderRoute: typeof ApiEnrollmentsEnrollmentIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/plans/': {
+      id: '/api/plans/'
+      path: '/api/plans'
+      fullPath: '/api/plans/'
+      preLoaderRoute: typeof ApiPlansIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/plans/$planId': {
+      id: '/api/plans/$planId'
+      path: '/api/plans/$planId'
+      fullPath: '/api/plans/$planId'
+      preLoaderRoute: typeof ApiPlansPlanIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/profile/': {
+      id: '/api/profile/'
+      path: '/api/profile'
+      fullPath: '/api/profile/'
+      preLoaderRoute: typeof ApiProfileIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/profile/address': {
+      id: '/api/profile/address'
+      path: '/api/profile/address'
+      fullPath: '/api/profile/address'
+      preLoaderRoute: typeof ApiProfileAddressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/profile/phone': {
+      id: '/api/profile/phone'
+      path: '/api/profile/phone'
+      fullPath: '/api/profile/phone'
+      preLoaderRoute: typeof ApiProfilePhoneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/profile/preferences': {
+      id: '/api/profile/preferences'
+      path: '/api/profile/preferences'
+      fullPath: '/api/profile/preferences'
+      preLoaderRoute: typeof ApiProfilePreferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/enrollments/$enrollmentId/cancel': {
+      id: '/api/enrollments/$enrollmentId/cancel'
+      path: '/cancel'
+      fullPath: '/api/enrollments/$enrollmentId/cancel'
+      preLoaderRoute: typeof ApiEnrollmentsEnrollmentIdCancelRouteImport
+      parentRoute: typeof ApiEnrollmentsEnrollmentIdRoute
+    }
+    '/api/enrollments/$enrollmentId/pay': {
+      id: '/api/enrollments/$enrollmentId/pay'
+      path: '/pay'
+      fullPath: '/api/enrollments/$enrollmentId/pay'
+      preLoaderRoute: typeof ApiEnrollmentsEnrollmentIdPayRouteImport
+      parentRoute: typeof ApiEnrollmentsEnrollmentIdRoute
+    }
+    '/api/enrollments/$enrollmentId/reinstate': {
+      id: '/api/enrollments/$enrollmentId/reinstate'
+      path: '/reinstate'
+      fullPath: '/api/enrollments/$enrollmentId/reinstate'
+      preLoaderRoute: typeof ApiEnrollmentsEnrollmentIdReinstateRouteImport
+      parentRoute: typeof ApiEnrollmentsEnrollmentIdRoute
     }
     '/api/help/articles/': {
       id: '/api/help/articles/'
@@ -831,27 +872,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/api/help/articles/$slug'
       preLoaderRoute: typeof ApiHelpArticlesSlugRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/api/enrollments/$enrollmentId/reinstate': {
-      id: '/api/enrollments/$enrollmentId/reinstate'
-      path: '/reinstate'
-      fullPath: '/api/enrollments/$enrollmentId/reinstate'
-      preLoaderRoute: typeof ApiEnrollmentsEnrollmentIdReinstateRouteImport
-      parentRoute: typeof ApiEnrollmentsEnrollmentIdRoute
-    }
-    '/api/enrollments/$enrollmentId/pay': {
-      id: '/api/enrollments/$enrollmentId/pay'
-      path: '/pay'
-      fullPath: '/api/enrollments/$enrollmentId/pay'
-      preLoaderRoute: typeof ApiEnrollmentsEnrollmentIdPayRouteImport
-      parentRoute: typeof ApiEnrollmentsEnrollmentIdRoute
-    }
-    '/api/enrollments/$enrollmentId/cancel': {
-      id: '/api/enrollments/$enrollmentId/cancel'
-      path: '/cancel'
-      fullPath: '/api/enrollments/$enrollmentId/cancel'
-      preLoaderRoute: typeof ApiEnrollmentsEnrollmentIdCancelRouteImport
-      parentRoute: typeof ApiEnrollmentsEnrollmentIdRoute
     }
   }
 }
@@ -880,6 +900,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
   ApiDocsRoute: ApiDocsRoute,
+  AutoflowDiscrepancyLogRoute: AutoflowDiscrepancyLogRoute,
   BrokersRoute: BrokersRoute,
   DashboardRoute: DashboardRoute,
   FaqsRoute: FaqsRoute,
