@@ -6,7 +6,7 @@ export const Route = createFileRoute("/api/profile/")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        const auth = await requireUser(request);
+        const auth = await requireUser(request, "profile:read");
         if ("response" in auth) return auth.response;
         return json({ ok: true, profile: publicUser(auth.user) });
       },

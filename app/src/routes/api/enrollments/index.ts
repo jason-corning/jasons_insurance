@@ -8,7 +8,7 @@ export const Route = createFileRoute("/api/enrollments/")({
     handlers: {
       // List the signed-in user's enrollments.
       GET: async ({ request }) => {
-        const auth = await requireUser(request);
+        const auth = await requireUser(request, "enrollments:read");
         if ("response" in auth) return auth.response;
         const rows = await requireDb()
           .prepare(
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/api/enrollments/")({
       // Start an enrollment in a plan (status: pending_payment until the
       // first premium payment is made).
       POST: async ({ request }) => {
-        const auth = await requireUser(request);
+        const auth = await requireUser(request, "enrollments:write");
         if ("response" in auth) return auth.response;
         let body: Record<string, unknown>;
         try {

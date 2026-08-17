@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { errorJson, hashPassword, json, requireDb } from "../../../lib/auth.server";
+import { errorJson, hashPassword, json, requireDb, revokeAllForUser } from "../../../lib/auth.server";
 
 export const Route = createFileRoute("/api/auth/reset-password")({
   server: {
@@ -32,8 +32,8 @@ export const Route = createFileRoute("/api/auth/reset-password")({
         const passwordHash = await hashPassword(password);
         await db.prepare("UPDATE users SET password_hash = ?1 WHERE id = ?2").bind(passwordHash, row.user_id).run();
         await db.prepare("UPDATE reset_tokens SET used = 1 WHERE token = ?1").bind(token).run();
-        // Sign out all existing sessions for safety.
-        await db.prepare("DELETE FROM sessions WHERE user_id = ?1").bind(row.user_id).run();
+        // Revoke every outstanding OAuth token for this user for safety.
+        await revokeAllForUser(row.user_id);
 
         return json({ ok: true });
       },

@@ -1,46 +1,42 @@
 # Jason's Insurance
 
-Jason's Insurance is a full-stack insurance portal for comparing, enrolling in, and managing health and dental coverage. It is designed as a calm, paper-inspired advisor experience for everyday households.
+A health & dental insurance marketplace demo: shop and compare plans, enroll and pay
+(simulated), manage coverage (cancel / reinstate), help center, FAQs sourced from the
+PY2026 consumer eligibility & enrollment policies, and a documented REST API behind a
+full OAuth 2.0 authorization server.
 
-The application includes:
+**Live site:** https://jasons-insurance.vercel.app
+**API docs:** https://jasons-insurance.vercel.app/api-docs
+**OAuth playground:** https://jasons-insurance.vercel.app/oauth-playground
 
-- Health and dental plan browsing
-- Plan details and enrollment flows
-- Account registration and login
-- A customer dashboard for managing coverage
-- Enrollment payments using a simulated payment flow
-- FAQs, help articles, and customer support content
-- Broker and advisor information
-- API routes for authentication, plans, profiles, enrollments, FAQs, and help content
+## Stack
 
-## Live site
+- React 19 + TanStack Start (SSR), Tailwind v4 — deployed to Vercel via nitro (`preset: "vercel"`)
+- Neon Postgres (schema + seed bootstrap in `app/src/lib/db.server.ts`)
+- OAuth 2.0 auth server: authorization-code + PKCE, password and refresh_token grants,
+  rotating refresh tokens with reuse detection, per-endpoint scopes
+  (`profile:read|write`, `enrollments:read|write`), registered-client table
+- App code lives in [`app/`](app/)
 
-[https://jasons-insurance.vercel.app/](https://jasons-insurance.vercel.app/)
-
-## Project structure
-
-- `app/` — the main TanStack Start application
-- `app/src/routes/` — page and API routes
-- `app/src/components/` — reusable interface components
-- `app/src/content/` — FAQs and help-center content
-- `app/packages/` — shared workspace packages
-- `.github/workflows/` — continuous integration workflow
-
-## Local development
-
-From the `app` directory:
+## Develop & deploy
 
 ```bash
+cd app
 bun install
-bun run dev
+vercel env pull        # brings DATABASE_URL etc. into .env.local (never committed)
+bun run dev            # local dev
+bun vite build         # build (.vercel/output)
+vercel deploy --prebuilt --prod --yes
 ```
 
-Useful commands:
+## OAuth quick reference
 
-```bash
-bun run build
-bun run lint
-bun run typecheck
-```
+- Auth URL: `/oauth/authorize` (consent screen; PKCE S256 required for public clients)
+- Token URL: `/api/oauth/token` (grants: `authorization_code`, `password`, `refresh_token`)
+- Revocation: `/api/oauth/revoke`
+- Registered clients live in the `oauth_clients` table (secrets stored as SHA-256 hashes;
+  see the seed block in `app/src/lib/db.server.ts`)
 
-The payment experience is simulated for demonstration purposes and does not connect to a live payment processor.
+Payments are simulated (test card `4242 4242 4242 4242`); password-reset links and
+username reminders are shown in-page instead of emailed. All plans, carriers, and
+brokers are fictional.

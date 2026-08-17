@@ -1,12 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import {
-  createSession,
+  ACCESS_TTL_SECONDS,
   errorJson,
   hashPassword,
-  json,
+  issueTokenPair,
+  jsonWithCookies,
   publicUser,
   requireDb,
+  tokenCookies,
+  TOKEN_SCOPE,
   type SessionUser,
 } from "../../../lib/auth.server";
 
@@ -58,14 +61,23 @@ export const Route = createFileRoute("/api/auth/register")({
           .first<{ id: number }>();
         if (!inserted) return errorJson(500, "create_failed", "Could not create the account.");
 
-        const { cookie } = await createSession(inserted.id);
+        const pair = await issueTokenPair(inserted.id);
         const user = await db
           .prepare("SELECT * FROM users WHERE id = ?1")
           .bind(inserted.id)
           .first<SessionUser>();
-        return json(
-          { ok: true, user: user ? publicUser(user) : null },
-          { status: 201, headers: { "set-cookie": cookie } },
+        return jsonWithCookies(
+          {
+            ok: true,
+            user: user ? publicUser(user) : null,
+            access_token: pair.accessToken,
+            token_type: "Bearer",
+            expires_in: ACCESS_TTL_SECONDS,
+            refresh_token: pair.refreshToken,
+            scope: TOKEN_SCOPE,
+          },
+          201,
+          tokenCookies(pair),
         );
       },
     },

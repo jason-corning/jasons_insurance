@@ -84,9 +84,12 @@ function HelpCenter() {
               licensed brokers can help with plan-specific decisions.
             </p>
           </div>
-          <div className="mt-4 flex gap-3 md:mt-0">
+          <div className="mt-4 flex flex-wrap gap-3 md:mt-0">
             <Link to="/faqs" className="rounded-full bg-ivory px-5 py-2.5 text-sm font-semibold text-pine transition hover:bg-sage">
               Read the FAQs
+            </Link>
+            <Link to="/contact" className="rounded-full border border-ivory/40 px-5 py-2.5 text-sm font-semibold text-ivory transition hover:bg-pinedeep">
+              Contact us
             </Link>
             <Link to="/brokers" className="rounded-full border border-ivory/40 px-5 py-2.5 text-sm font-semibold text-ivory transition hover:bg-pinedeep">
               Find a broker

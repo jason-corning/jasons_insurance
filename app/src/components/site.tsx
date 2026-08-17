@@ -158,6 +158,7 @@ export function Footer() {
           links={[
             ["/help", "Help center"],
             ["/faqs", "FAQs"],
+            ["/contact", "Contact us"],
             ["/api-docs", "API documentation"],
             ["/dashboard", "My dashboard"],
           ]}

@@ -7,7 +7,7 @@ export const Route = createFileRoute("/api/enrollments/$enrollmentId/cancel")({
   server: {
     handlers: {
       POST: async ({ request, params }) => {
-        const auth = await requireUser(request);
+        const auth = await requireUser(request, "enrollments:write");
         if ("response" in auth) return auth.response;
         const id = Number(params.enrollmentId);
         if (!Number.isInteger(id) || id <= 0) return errorJson(400, "invalid_id", "Enrollment id must be a positive integer.");

@@ -6,7 +6,7 @@ export const Route = createFileRoute("/api/profile/phone")({
   server: {
     handlers: {
       PUT: async ({ request }) => {
-        const auth = await requireUser(request);
+        const auth = await requireUser(request, "profile:write");
         if ("response" in auth) return auth.response;
         let body: Record<string, unknown>;
         try {

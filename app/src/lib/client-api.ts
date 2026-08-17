@@ -13,12 +13,24 @@ export class RequestError extends Error {
   }
 }
 
-export async function api<T>(path: string, init?: RequestInit): Promise<T> {
+// OAuth-aware fetch wrapper. Access tokens are short-lived (15 min) and ride
+// an httpOnly cookie; on a 401 we run the refresh_token grant once (the
+// refresh token is also cookie-borne) and retry the original request.
+export async function api<T>(path: string, init?: RequestInit, retried = false): Promise<T> {
   const response = await fetch(path, {
     credentials: "include",
     headers: init?.body ? { "content-type": "application/json" } : undefined,
     ...init,
   });
+  if (response.status === 401 && !retried && !path.startsWith("/api/oauth/") && !path.startsWith("/api/auth/")) {
+    const refreshed = await fetch("/api/oauth/token", {
+      method: "POST",
+      credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ grant_type: "refresh_token" }),
+    });
+    if (refreshed.ok) return api<T>(path, init, true);
+  }
   let data: unknown = null;
   try {
     data = await response.json();

@@ -14,21 +14,25 @@ import { Route as AccountRouteImport } from './routes/account'
 import { Route as ApiDocsRouteImport } from './routes/api-docs'
 import { Route as AutoflowDiscrepancyLogRouteImport } from './routes/autoflow-discrepancy-log'
 import { Route as BrokersRouteImport } from './routes/brokers'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as ForgotUsernameRouteImport } from './routes/forgot-username'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as OauthPlaygroundRouteImport } from './routes/oauth-playground'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as ApiFaqsRouteImport } from './routes/api/faqs'
 import { Route as EnrollPlanIdRouteImport } from './routes/enroll.$planId'
 import { Route as EnrollmentsEnrollmentIdRouteImport } from './routes/enrollments.$enrollmentId'
 import { Route as HelpIndexRouteImport } from './routes/help.index'
 import { Route as HelpSlugRouteImport } from './routes/help.$slug'
+import { Route as OauthAuthorizeRouteImport } from './routes/oauth.authorize'
 import { Route as PlansPlanIdRouteImport } from './routes/plans.$planId'
 import { Route as ApiAuthForgotPasswordRouteImport } from './routes/api/auth/forgot-password'
 import { Route as ApiAuthForgotUsernameRouteImport } from './routes/api/auth/forgot-username'
@@ -40,6 +44,10 @@ import { Route as ApiAuthResetPasswordRouteImport } from './routes/api/auth/rese
 import { Route as ApiBrokersIndexRouteImport } from './routes/api/brokers/index'
 import { Route as ApiEnrollmentsIndexRouteImport } from './routes/api/enrollments/index'
 import { Route as ApiEnrollmentsEnrollmentIdRouteImport } from './routes/api/enrollments/$enrollmentId'
+import { Route as ApiOauthApproveRouteImport } from './routes/api/oauth/approve'
+import { Route as ApiOauthAuthorizeInfoRouteImport } from './routes/api/oauth/authorize-info'
+import { Route as ApiOauthRevokeRouteImport } from './routes/api/oauth/revoke'
+import { Route as ApiOauthTokenRouteImport } from './routes/api/oauth/token'
 import { Route as ApiPlansIndexRouteImport } from './routes/api/plans/index'
 import { Route as ApiPlansPlanIdRouteImport } from './routes/api/plans/$planId'
 import { Route as ApiProfileIndexRouteImport } from './routes/api/profile/index'
@@ -77,6 +85,11 @@ const BrokersRoute = BrokersRouteImport.update({
   path: '/brokers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -100,6 +113,11 @@ const ForgotUsernameRoute = ForgotUsernameRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OauthPlaygroundRoute = OauthPlaygroundRouteImport.update({
+  id: '/oauth-playground',
+  path: '/oauth-playground',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RegisterRoute = RegisterRouteImport.update({
@@ -127,6 +145,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiContactRoute = ApiContactRouteImport.update({
+  id: '/api/contact',
+  path: '/api/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiFaqsRoute = ApiFaqsRouteImport.update({
   id: '/api/faqs',
   path: '/api/faqs',
@@ -150,6 +173,11 @@ const HelpIndexRoute = HelpIndexRouteImport.update({
 const HelpSlugRoute = HelpSlugRouteImport.update({
   id: '/help/$slug',
   path: '/help/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OauthAuthorizeRoute = OauthAuthorizeRouteImport.update({
+  id: '/oauth/authorize',
+  path: '/oauth/authorize',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlansPlanIdRoute = PlansPlanIdRouteImport.update({
@@ -208,6 +236,26 @@ const ApiEnrollmentsEnrollmentIdRoute =
     path: '/api/enrollments/$enrollmentId',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiOauthApproveRoute = ApiOauthApproveRouteImport.update({
+  id: '/api/oauth/approve',
+  path: '/api/oauth/approve',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiOauthAuthorizeInfoRoute = ApiOauthAuthorizeInfoRouteImport.update({
+  id: '/api/oauth/authorize-info',
+  path: '/api/oauth/authorize-info',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiOauthRevokeRoute = ApiOauthRevokeRouteImport.update({
+  id: '/api/oauth/revoke',
+  path: '/api/oauth/revoke',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiOauthTokenRoute = ApiOauthTokenRouteImport.update({
+  id: '/api/oauth/token',
+  path: '/api/oauth/token',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPlansIndexRoute = ApiPlansIndexRouteImport.update({
   id: '/api/plans/',
   path: '/api/plans/',
@@ -273,20 +321,24 @@ export interface FileRoutesByFullPath {
   '/api-docs': typeof ApiDocsRoute
   '/autoflow-discrepancy-log': typeof AutoflowDiscrepancyLogRoute
   '/brokers': typeof BrokersRoute
+  '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/faqs': typeof FaqsRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/forgot-username': typeof ForgotUsernameRoute
   '/login': typeof LoginRoute
+  '/oauth-playground': typeof OauthPlaygroundRoute
   '/register': typeof RegisterRoute
   '/reset-password': typeof ResetPasswordRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/contact': typeof ApiContactRoute
   '/api/faqs': typeof ApiFaqsRoute
   '/enroll/$planId': typeof EnrollPlanIdRoute
   '/enrollments/$enrollmentId': typeof EnrollmentsEnrollmentIdRoute
   '/help/$slug': typeof HelpSlugRoute
+  '/oauth/authorize': typeof OauthAuthorizeRoute
   '/plans/$planId': typeof PlansPlanIdRoute
   '/help/': typeof HelpIndexRoute
   '/api/auth/forgot-password': typeof ApiAuthForgotPasswordRoute
@@ -297,6 +349,10 @@ export interface FileRoutesByFullPath {
   '/api/auth/register': typeof ApiAuthRegisterRoute
   '/api/auth/reset-password': typeof ApiAuthResetPasswordRoute
   '/api/enrollments/$enrollmentId': typeof ApiEnrollmentsEnrollmentIdRouteWithChildren
+  '/api/oauth/approve': typeof ApiOauthApproveRoute
+  '/api/oauth/authorize-info': typeof ApiOauthAuthorizeInfoRoute
+  '/api/oauth/revoke': typeof ApiOauthRevokeRoute
+  '/api/oauth/token': typeof ApiOauthTokenRoute
   '/api/plans/$planId': typeof ApiPlansPlanIdRoute
   '/api/profile/address': typeof ApiProfileAddressRoute
   '/api/profile/phone': typeof ApiProfilePhoneRoute
@@ -317,20 +373,24 @@ export interface FileRoutesByTo {
   '/api-docs': typeof ApiDocsRoute
   '/autoflow-discrepancy-log': typeof AutoflowDiscrepancyLogRoute
   '/brokers': typeof BrokersRoute
+  '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/faqs': typeof FaqsRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/forgot-username': typeof ForgotUsernameRoute
   '/login': typeof LoginRoute
+  '/oauth-playground': typeof OauthPlaygroundRoute
   '/register': typeof RegisterRoute
   '/reset-password': typeof ResetPasswordRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/contact': typeof ApiContactRoute
   '/api/faqs': typeof ApiFaqsRoute
   '/enroll/$planId': typeof EnrollPlanIdRoute
   '/enrollments/$enrollmentId': typeof EnrollmentsEnrollmentIdRoute
   '/help/$slug': typeof HelpSlugRoute
+  '/oauth/authorize': typeof OauthAuthorizeRoute
   '/plans/$planId': typeof PlansPlanIdRoute
   '/help': typeof HelpIndexRoute
   '/api/auth/forgot-password': typeof ApiAuthForgotPasswordRoute
@@ -341,6 +401,10 @@ export interface FileRoutesByTo {
   '/api/auth/register': typeof ApiAuthRegisterRoute
   '/api/auth/reset-password': typeof ApiAuthResetPasswordRoute
   '/api/enrollments/$enrollmentId': typeof ApiEnrollmentsEnrollmentIdRouteWithChildren
+  '/api/oauth/approve': typeof ApiOauthApproveRoute
+  '/api/oauth/authorize-info': typeof ApiOauthAuthorizeInfoRoute
+  '/api/oauth/revoke': typeof ApiOauthRevokeRoute
+  '/api/oauth/token': typeof ApiOauthTokenRoute
   '/api/plans/$planId': typeof ApiPlansPlanIdRoute
   '/api/profile/address': typeof ApiProfileAddressRoute
   '/api/profile/phone': typeof ApiProfilePhoneRoute
@@ -362,20 +426,24 @@ export interface FileRoutesById {
   '/api-docs': typeof ApiDocsRoute
   '/autoflow-discrepancy-log': typeof AutoflowDiscrepancyLogRoute
   '/brokers': typeof BrokersRoute
+  '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/faqs': typeof FaqsRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/forgot-username': typeof ForgotUsernameRoute
   '/login': typeof LoginRoute
+  '/oauth-playground': typeof OauthPlaygroundRoute
   '/register': typeof RegisterRoute
   '/reset-password': typeof ResetPasswordRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/contact': typeof ApiContactRoute
   '/api/faqs': typeof ApiFaqsRoute
   '/enroll/$planId': typeof EnrollPlanIdRoute
   '/enrollments/$enrollmentId': typeof EnrollmentsEnrollmentIdRoute
   '/help/$slug': typeof HelpSlugRoute
+  '/oauth/authorize': typeof OauthAuthorizeRoute
   '/plans/$planId': typeof PlansPlanIdRoute
   '/help/': typeof HelpIndexRoute
   '/api/auth/forgot-password': typeof ApiAuthForgotPasswordRoute
@@ -386,6 +454,10 @@ export interface FileRoutesById {
   '/api/auth/register': typeof ApiAuthRegisterRoute
   '/api/auth/reset-password': typeof ApiAuthResetPasswordRoute
   '/api/enrollments/$enrollmentId': typeof ApiEnrollmentsEnrollmentIdRouteWithChildren
+  '/api/oauth/approve': typeof ApiOauthApproveRoute
+  '/api/oauth/authorize-info': typeof ApiOauthAuthorizeInfoRoute
+  '/api/oauth/revoke': typeof ApiOauthRevokeRoute
+  '/api/oauth/token': typeof ApiOauthTokenRoute
   '/api/plans/$planId': typeof ApiPlansPlanIdRoute
   '/api/profile/address': typeof ApiProfileAddressRoute
   '/api/profile/phone': typeof ApiProfilePhoneRoute
@@ -408,20 +480,24 @@ export interface FileRouteTypes {
     | '/api-docs'
     | '/autoflow-discrepancy-log'
     | '/brokers'
+    | '/contact'
     | '/dashboard'
     | '/faqs'
     | '/forgot-password'
     | '/forgot-username'
     | '/login'
+    | '/oauth-playground'
     | '/register'
     | '/reset-password'
     | '/robots.txt'
     | '/shop'
     | '/sitemap.xml'
+    | '/api/contact'
     | '/api/faqs'
     | '/enroll/$planId'
     | '/enrollments/$enrollmentId'
     | '/help/$slug'
+    | '/oauth/authorize'
     | '/plans/$planId'
     | '/help/'
     | '/api/auth/forgot-password'
@@ -432,6 +508,10 @@ export interface FileRouteTypes {
     | '/api/auth/register'
     | '/api/auth/reset-password'
     | '/api/enrollments/$enrollmentId'
+    | '/api/oauth/approve'
+    | '/api/oauth/authorize-info'
+    | '/api/oauth/revoke'
+    | '/api/oauth/token'
     | '/api/plans/$planId'
     | '/api/profile/address'
     | '/api/profile/phone'
@@ -452,20 +532,24 @@ export interface FileRouteTypes {
     | '/api-docs'
     | '/autoflow-discrepancy-log'
     | '/brokers'
+    | '/contact'
     | '/dashboard'
     | '/faqs'
     | '/forgot-password'
     | '/forgot-username'
     | '/login'
+    | '/oauth-playground'
     | '/register'
     | '/reset-password'
     | '/robots.txt'
     | '/shop'
     | '/sitemap.xml'
+    | '/api/contact'
     | '/api/faqs'
     | '/enroll/$planId'
     | '/enrollments/$enrollmentId'
     | '/help/$slug'
+    | '/oauth/authorize'
     | '/plans/$planId'
     | '/help'
     | '/api/auth/forgot-password'
@@ -476,6 +560,10 @@ export interface FileRouteTypes {
     | '/api/auth/register'
     | '/api/auth/reset-password'
     | '/api/enrollments/$enrollmentId'
+    | '/api/oauth/approve'
+    | '/api/oauth/authorize-info'
+    | '/api/oauth/revoke'
+    | '/api/oauth/token'
     | '/api/plans/$planId'
     | '/api/profile/address'
     | '/api/profile/phone'
@@ -496,20 +584,24 @@ export interface FileRouteTypes {
     | '/api-docs'
     | '/autoflow-discrepancy-log'
     | '/brokers'
+    | '/contact'
     | '/dashboard'
     | '/faqs'
     | '/forgot-password'
     | '/forgot-username'
     | '/login'
+    | '/oauth-playground'
     | '/register'
     | '/reset-password'
     | '/robots.txt'
     | '/shop'
     | '/sitemap.xml'
+    | '/api/contact'
     | '/api/faqs'
     | '/enroll/$planId'
     | '/enrollments/$enrollmentId'
     | '/help/$slug'
+    | '/oauth/authorize'
     | '/plans/$planId'
     | '/help/'
     | '/api/auth/forgot-password'
@@ -520,6 +612,10 @@ export interface FileRouteTypes {
     | '/api/auth/register'
     | '/api/auth/reset-password'
     | '/api/enrollments/$enrollmentId'
+    | '/api/oauth/approve'
+    | '/api/oauth/authorize-info'
+    | '/api/oauth/revoke'
+    | '/api/oauth/token'
     | '/api/plans/$planId'
     | '/api/profile/address'
     | '/api/profile/phone'
@@ -541,20 +637,24 @@ export interface RootRouteChildren {
   ApiDocsRoute: typeof ApiDocsRoute
   AutoflowDiscrepancyLogRoute: typeof AutoflowDiscrepancyLogRoute
   BrokersRoute: typeof BrokersRoute
+  ContactRoute: typeof ContactRoute
   DashboardRoute: typeof DashboardRoute
   FaqsRoute: typeof FaqsRoute
   ForgotPasswordRoute: typeof ForgotPasswordRoute
   ForgotUsernameRoute: typeof ForgotUsernameRoute
   LoginRoute: typeof LoginRoute
+  OauthPlaygroundRoute: typeof OauthPlaygroundRoute
   RegisterRoute: typeof RegisterRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ApiContactRoute: typeof ApiContactRoute
   ApiFaqsRoute: typeof ApiFaqsRoute
   EnrollPlanIdRoute: typeof EnrollPlanIdRoute
   EnrollmentsEnrollmentIdRoute: typeof EnrollmentsEnrollmentIdRoute
   HelpSlugRoute: typeof HelpSlugRoute
+  OauthAuthorizeRoute: typeof OauthAuthorizeRoute
   PlansPlanIdRoute: typeof PlansPlanIdRoute
   HelpIndexRoute: typeof HelpIndexRoute
   ApiAuthForgotPasswordRoute: typeof ApiAuthForgotPasswordRoute
@@ -565,6 +665,10 @@ export interface RootRouteChildren {
   ApiAuthRegisterRoute: typeof ApiAuthRegisterRoute
   ApiAuthResetPasswordRoute: typeof ApiAuthResetPasswordRoute
   ApiEnrollmentsEnrollmentIdRoute: typeof ApiEnrollmentsEnrollmentIdRouteWithChildren
+  ApiOauthApproveRoute: typeof ApiOauthApproveRoute
+  ApiOauthAuthorizeInfoRoute: typeof ApiOauthAuthorizeInfoRoute
+  ApiOauthRevokeRoute: typeof ApiOauthRevokeRoute
+  ApiOauthTokenRoute: typeof ApiOauthTokenRoute
   ApiPlansPlanIdRoute: typeof ApiPlansPlanIdRoute
   ApiProfileAddressRoute: typeof ApiProfileAddressRoute
   ApiProfilePhoneRoute: typeof ApiProfilePhoneRoute
@@ -614,6 +718,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BrokersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
@@ -647,6 +758,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oauth-playground': {
+      id: '/oauth-playground'
+      path: '/oauth-playground'
+      fullPath: '/oauth-playground'
+      preLoaderRoute: typeof OauthPlaygroundRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/register': {
@@ -684,6 +802,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/contact': {
+      id: '/api/contact'
+      path: '/api/contact'
+      fullPath: '/api/contact'
+      preLoaderRoute: typeof ApiContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/faqs': {
       id: '/api/faqs'
       path: '/api/faqs'
@@ -717,6 +842,13 @@ declare module '@tanstack/react-router' {
       path: '/help/$slug'
       fullPath: '/help/$slug'
       preLoaderRoute: typeof HelpSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oauth/authorize': {
+      id: '/oauth/authorize'
+      path: '/oauth/authorize'
+      fullPath: '/oauth/authorize'
+      preLoaderRoute: typeof OauthAuthorizeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/plans/$planId': {
@@ -794,6 +926,34 @@ declare module '@tanstack/react-router' {
       path: '/api/enrollments/$enrollmentId'
       fullPath: '/api/enrollments/$enrollmentId'
       preLoaderRoute: typeof ApiEnrollmentsEnrollmentIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/oauth/approve': {
+      id: '/api/oauth/approve'
+      path: '/api/oauth/approve'
+      fullPath: '/api/oauth/approve'
+      preLoaderRoute: typeof ApiOauthApproveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/oauth/authorize-info': {
+      id: '/api/oauth/authorize-info'
+      path: '/api/oauth/authorize-info'
+      fullPath: '/api/oauth/authorize-info'
+      preLoaderRoute: typeof ApiOauthAuthorizeInfoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/oauth/revoke': {
+      id: '/api/oauth/revoke'
+      path: '/api/oauth/revoke'
+      fullPath: '/api/oauth/revoke'
+      preLoaderRoute: typeof ApiOauthRevokeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/oauth/token': {
+      id: '/api/oauth/token'
+      path: '/api/oauth/token'
+      fullPath: '/api/oauth/token'
+      preLoaderRoute: typeof ApiOauthTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/plans/': {
@@ -902,20 +1062,24 @@ const rootRouteChildren: RootRouteChildren = {
   ApiDocsRoute: ApiDocsRoute,
   AutoflowDiscrepancyLogRoute: AutoflowDiscrepancyLogRoute,
   BrokersRoute: BrokersRoute,
+  ContactRoute: ContactRoute,
   DashboardRoute: DashboardRoute,
   FaqsRoute: FaqsRoute,
   ForgotPasswordRoute: ForgotPasswordRoute,
   ForgotUsernameRoute: ForgotUsernameRoute,
   LoginRoute: LoginRoute,
+  OauthPlaygroundRoute: OauthPlaygroundRoute,
   RegisterRoute: RegisterRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ApiContactRoute: ApiContactRoute,
   ApiFaqsRoute: ApiFaqsRoute,
   EnrollPlanIdRoute: EnrollPlanIdRoute,
   EnrollmentsEnrollmentIdRoute: EnrollmentsEnrollmentIdRoute,
   HelpSlugRoute: HelpSlugRoute,
+  OauthAuthorizeRoute: OauthAuthorizeRoute,
   PlansPlanIdRoute: PlansPlanIdRoute,
   HelpIndexRoute: HelpIndexRoute,
   ApiAuthForgotPasswordRoute: ApiAuthForgotPasswordRoute,
@@ -926,6 +1090,10 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAuthRegisterRoute: ApiAuthRegisterRoute,
   ApiAuthResetPasswordRoute: ApiAuthResetPasswordRoute,
   ApiEnrollmentsEnrollmentIdRoute: ApiEnrollmentsEnrollmentIdRouteWithChildren,
+  ApiOauthApproveRoute: ApiOauthApproveRoute,
+  ApiOauthAuthorizeInfoRoute: ApiOauthAuthorizeInfoRoute,
+  ApiOauthRevokeRoute: ApiOauthRevokeRoute,
+  ApiOauthTokenRoute: ApiOauthTokenRoute,
   ApiPlansPlanIdRoute: ApiPlansPlanIdRoute,
   ApiProfileAddressRoute: ApiProfileAddressRoute,
   ApiProfilePhoneRoute: ApiProfilePhoneRoute,

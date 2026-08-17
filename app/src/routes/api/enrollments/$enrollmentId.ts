@@ -8,7 +8,7 @@ export const Route = createFileRoute("/api/enrollments/$enrollmentId")({
     handlers: {
       // Enrollment status + payment history at any time.
       GET: async ({ request, params }) => {
-        const auth = await requireUser(request);
+        const auth = await requireUser(request, "enrollments:read");
         if ("response" in auth) return auth.response;
         const id = Number(params.enrollmentId);
         if (!Number.isInteger(id) || id <= 0) return errorJson(400, "invalid_id", "Enrollment id must be a positive integer.");

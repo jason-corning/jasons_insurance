@@ -116,6 +116,48 @@ async function init(): Promise<void> {
       status TEXT NOT NULL DEFAULT 'succeeded',
       paid_at TEXT NOT NULL DEFAULT utc_now_text()
     )`,
+    `CREATE TABLE IF NOT EXISTS oauth_clients (
+      client_id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      secret_hash TEXT,
+      redirect_uris TEXT NOT NULL,
+      allowed_scopes TEXT NOT NULL,
+      confidential INTEGER NOT NULL DEFAULT 0,
+      created_at TEXT NOT NULL DEFAULT utc_now_text()
+    )`,
+    `CREATE TABLE IF NOT EXISTS oauth_codes (
+      code TEXT PRIMARY KEY,
+      client_id TEXT NOT NULL,
+      user_id INTEGER NOT NULL REFERENCES users(id),
+      redirect_uri TEXT NOT NULL,
+      scope TEXT NOT NULL,
+      code_challenge TEXT,
+      code_challenge_method TEXT,
+      used INTEGER NOT NULL DEFAULT 0,
+      created_at TEXT NOT NULL DEFAULT utc_now_text(),
+      expires_at TEXT NOT NULL
+    )`,
+    `CREATE TABLE IF NOT EXISTS oauth_tokens (
+      id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+      user_id INTEGER NOT NULL REFERENCES users(id),
+      kind TEXT NOT NULL,
+      token TEXT NOT NULL UNIQUE,
+      family_id TEXT NOT NULL,
+      revoked INTEGER NOT NULL DEFAULT 0,
+      created_at TEXT NOT NULL DEFAULT utc_now_text(),
+      expires_at TEXT NOT NULL
+    )`,
+    `CREATE INDEX IF NOT EXISTS idx_oauth_tokens_family ON oauth_tokens(family_id)`,
+    `CREATE INDEX IF NOT EXISTS idx_oauth_tokens_user ON oauth_tokens(user_id)`,
+    `CREATE TABLE IF NOT EXISTS support_messages (
+      id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+      user_id INTEGER,
+      name TEXT NOT NULL,
+      email TEXT NOT NULL,
+      subject TEXT NOT NULL,
+      message TEXT NOT NULL,
+      created_at TEXT NOT NULL DEFAULT utc_now_text()
+    )`,
     `CREATE TABLE IF NOT EXISTS brokers (
       id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
       name TEXT NOT NULL,
@@ -135,6 +177,32 @@ async function init(): Promise<void> {
     `CREATE INDEX IF NOT EXISTS idx_plans_type ON plans(plan_type)`,
   ];
   for (const statement of ddl) await sql.query(statement);
+
+  // Additive migration: per-token scopes (older tokens default to full scope).
+  await sql.query(
+    `ALTER TABLE oauth_tokens ADD COLUMN IF NOT EXISTS scope TEXT NOT NULL DEFAULT 'profile:read profile:write enrollments:read enrollments:write'`,
+  );
+
+  // Seed the demo OAuth clients (a public PKCE client used by the on-site
+  // playground, and a confidential client for server-to-server testing whose
+  // secret is intentionally documented on the API docs page — demo data only).
+  const clientCount = await sql.query(`SELECT COUNT(*)::int AS n FROM oauth_clients`);
+  if ((clientCount as Row[])[0]?.n === 0) {
+    const secretDigest = await crypto.subtle.digest(
+      "SHA-256",
+      new TextEncoder().encode("demo-secret-12345"),
+    );
+    const secretHash = Array.from(new Uint8Array(secretDigest))
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+    await sql.query(
+      `INSERT INTO oauth_clients (client_id, name, secret_hash, redirect_uris, allowed_scopes, confidential) VALUES
+       ('demo-partner', 'Demo Partner Portal', NULL, '["https://jasons-insurance.vercel.app/oauth-playground","http://localhost:4573/oauth-playground"]', 'profile:read enrollments:read', 0),
+       ('demo-confidential', 'Demo Server Integration', $1, '["https://jasons-insurance.vercel.app/oauth-playground"]', 'profile:read enrollments:read', 1),
+       ('forethought-solve', 'Forethought Solve Widget', '16ab9d93d9d7bb66b883d7dcd379cd427026f1f0851c8bc4f394ea79eace9218', '["https://app.forethought.ai/solve/auth/oauth"]', 'profile:read profile:write enrollments:read enrollments:write', 1)`,
+      [secretHash],
+    );
+  }
 
   const planCount = await sql.query(`SELECT COUNT(*)::int AS n FROM plans`);
   if ((planCount as Row[])[0]?.n === 0) {
